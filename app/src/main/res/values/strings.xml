@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MySample</string>
+    <string name="camera_sample">自定义相机示例</string>
+</resources>

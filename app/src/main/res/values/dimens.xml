@@ -1,0 +1,89 @@
+<resources>
+    <dimen name="margin">12dip</dimen>
+    <dimen name="title_height">48dip</dimen>
+    <dimen name="middle_padding">10dip</dimen>
+    <dimen name="min_padding">6dip</dimen>
+    <dimen name="split_piece_height">20dip</dimen>
+    <dimen name="gap">0.5dip</dimen>
+
+    <dimen name="no_dip">0dip</dimen>
+    <dimen name="dip_1">1dip</dimen>
+    <dimen name="dip_2">2dip</dimen>
+    <dimen name="dip_3">3dip</dimen>
+    <dimen name="dip_4">4dip</dimen>
+    <dimen name="dip_5">5dip</dimen>
+    <dimen name="dip_7">7dip</dimen>
+    <dimen name="dip_8">8dip</dimen>
+    <dimen name="dip_10">10dip</dimen>
+    <dimen name="dip_11">11dip</dimen>
+    <dimen name="dip_12">12dip</dimen>
+    <dimen name="dip_13">13dip</dimen>
+    <dimen name="dip_14">14dip</dimen>
+    <dimen name="dip_15">15dip</dimen>
+    <dimen name="dip_16">16dip</dimen>
+    <dimen name="dip_17">17dip</dimen>
+    <dimen name="dip_18">18dip</dimen>
+    <dimen name="dip_20">20dip</dimen>
+    <dimen name="dip_22">22dip</dimen>
+    <dimen name="dip_25">25dip</dimen>
+    <dimen name="dip_30">30dip</dimen>
+    <dimen name="dip_32">32dip</dimen>
+    <dimen name="dip_34">34dip</dimen>
+    <dimen name="dip_35">35dip</dimen>
+    <dimen name="dip_37">37dip</dimen>
+    <dimen name="dip_38">38dip</dimen>
+    <dimen name="dip_40">40dip</dimen>
+    <dimen name="dip_42">42dip</dimen>
+    <dimen name="dip_44">44dip</dimen>
+    <dimen name="dip_45">45dip</dimen>
+    <dimen name="dip_48">48dip</dimen>
+    <dimen name="dip_50">50dip</dimen>
+    <dimen name="dip_58">58dip</dimen>
+    <dimen name="dip_60">60dip</dimen>
+    <dimen name="dip_61">61dip</dimen>
+    <dimen name="dip_64">64dip</dimen>
+    <dimen name="dip_68">68dip</dimen>
+    <dimen name="dip_70">70dip</dimen>
+    <dimen name="dip_72">72dip</dimen>
+    <dimen name="dip_82">82dip</dimen>
+    <dimen name="dip_84">84dip</dimen>
+    <dimen name="dip_96">96dip</dimen>
+    <dimen name="dip_100">100dip</dimen>
+    <dimen name="dip_110">110dip</dimen>
+    <dimen name="dip_150">150dip</dimen>
+    <dimen name="dip_190">190dip</dimen>
+    <dimen name="dip_220">220dip</dimen>
+    <dimen name="dip_240">240dip</dimen>
+    <dimen name="dip_320">320dip</dimen>
+
+
+    <dimen name="check_in_btn_height">39dip</dimen>
+
+    <dimen name="task_margin">16dip</dimen>
+    <dimen name="small_row_margin">5dip</dimen>
+    <dimen name="row_margin">22dip</dimen>
+
+    <dimen name="logout_bottom_margin">80dip</dimen>
+
+    <dimen name="dialog_title_height">45dip</dimen>
+
+    <!--－－－－－－－－－－－－－－ 以下是文字的大小 －－－－－－－－－－－－-->
+
+    <dimen name="sp_smaller">12sp</dimen>
+    <dimen name="sp_small">14sp</dimen>
+    <dimen name="sp_normal">16sp</dimen>
+    <dimen name="sp_largest">19sp</dimen>
+    <dimen name="sp_smallest">12sp</dimen>
+    <dimen name="sp_larger">18sp</dimen>
+
+    <dimen name="sp_11">11sp</dimen>
+    <dimen name="sp_12">12sp</dimen>
+    <dimen name="sp_13">13sp</dimen>
+    <dimen name="sp_15">15sp</dimen>
+    <dimen name="sp_20">20sp</dimen>
+    <dimen name="sp_22">22sp</dimen>
+    <dimen name="sp_24">24sp</dimen>
+    <dimen name="sp_30">30sp</dimen>
+    <dimen name="sp_36">36sp</dimen>
+	<dimen name="dip_6">6dp</dimen>
+</resources>
