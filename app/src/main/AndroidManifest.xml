@@ -24,6 +24,11 @@
         <activity android:name=".feature.camera.ui.CameraActivity"
             android:screenOrientation="portrait" />
 
+        <activity android:name=".surfacegame.SurfaceGameActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".matrix.MatrixGameActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

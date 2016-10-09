@@ -43,7 +43,6 @@ public class BitmapUtil {
 			if(!fileFolder.mkdir()){
 				Log.i("TEST","mk folder fail!");
 			}
-			;
 		}
 
 		File pic = new File(fileFolder, fileName);
@@ -53,8 +52,6 @@ public class BitmapUtil {
 		} catch (FileNotFoundException e) {
 			path = "";
 			e.printStackTrace();
-		} catch (IOException e) {
-			path = "";
 		} finally {
 			bmp.recycle();
 		}
