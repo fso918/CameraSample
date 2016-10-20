@@ -12,16 +12,16 @@ import java.util.Random;
 public class RectGraph extends GameGraph {
 
     private RectGraph(){
-        color = Color.GREEN;
+        color = Color.parseColor("#4B0082");
         blocks = new ArrayList<MapBlock>();
         MapBlock block = null;
-        block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2 - 1, -2);
+        block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2 - 1, -2, color);
         blocks.add(block);
-        block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2, -2);
+        block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2, -2, color);
         blocks.add(block);
-        block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2 - 1, -1);
+        block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2 - 1, -1, color);
         blocks.add(block);
-        block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2, -1);
+        block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2, -1, color);
         blocks.add(block);
     }
 
@@ -35,7 +35,10 @@ public class RectGraph extends GameGraph {
         MapBlock block1 = blocks.get(2);
         MapBlock block2 = blocks.get(3);
         if(block1.getY() == MatrixGameConstant.GAME_HEIGHT -1) return false;
-        if(GameUtils.getBlock(gmap, block1.getX(), block1.getY() + 1).isBlock() || GameUtils.getBlock(gmap, block2.getX(), block2.getY() + 1).isBlock()){
+//        if(GameUtils.getBlock(gmap, block1.getX(), block1.getY() + 1).isBlock() || GameUtils.getBlock(gmap, block2.getX(), block2.getY() + 1).isBlock()){
+//            return false;
+//
+        if(GameUtils.isDownBlocked(gmap, block1, block2)){
             return false;
         }
         return true;

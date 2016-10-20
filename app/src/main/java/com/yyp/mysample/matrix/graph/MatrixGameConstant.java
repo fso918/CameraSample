@@ -10,9 +10,11 @@ public interface MatrixGameConstant {
     int GAME_WIDTH = 12;
     int GAME_HEIGHT = 20;
     int GAME_BLOCK_WIDTH = 30;
-    int GAME_DEFAULT_COLOR = Color.parseColor("#80000000");
+    int GAME_DEFAULT_COLOR = Color.parseColor("#737373");
     int GAME_BLOCK_COLOR = Color.BLUE;
-    int GAME_GRAPH_COUNT = 5;
+    int GAME_GRAPH_COUNT = 7;
+
+    int GAME_COLOR_TYPE = GameGraph.COLOR_TYPE_RANDOM;
 
     int GAME_SPEED_STEP_1 =500;
     int GAME_SPEED_STEP_2 =450;

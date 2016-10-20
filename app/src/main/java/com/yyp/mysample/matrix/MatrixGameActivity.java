@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -92,21 +93,27 @@ public class MatrixGameActivity extends AppCompatActivity  implements SurfaceHol
         try {
             switch (view.getId()) {
                 case R.id.turn_shape:
-                    if (graph != null && graph.canTurnShape(gMap)) {
-                        gMap.resetGraph(graph);
-                        graph.turnShape();
+                    synchronized (GameGraph.class) {
+                        if (graph != null && graph.canTurnShape(gMap)) {
+//                            gMap.resetGraph(graph);
+                            graph.turnShape();
+                        }
                     }
                     break;
                 case R.id.move_left:
                     if (graph != null && graph.canMoveLeft(gMap)) {
-                        gMap.resetGraph(graph);
-                        graph.moveLeft();
+                        synchronized (GameGraph.class) {
+//                            gMap.resetGraph(graph);
+                            graph.moveLeft();
+                        }
                     }
                     break;
                 case R.id.move_right:
                     if (graph != null && graph.canMoveRight(gMap)) {
-                        gMap.resetGraph(graph);
-                        graph.moveRight();
+                        synchronized (GameGraph.class) {
+//                            gMap.resetGraph(graph);
+                            graph.moveRight();
+                        }
                     }
                     break;
             }
@@ -118,8 +125,10 @@ public class MatrixGameActivity extends AppCompatActivity  implements SurfaceHol
     private void draw(Canvas canvas){
         canvas.drawColor(Color.WHITE);
         synchronized (gMap) {
-            if (graph != null) {
-                graph.draw(gMap);
+            synchronized (GameGraph.class) {
+                if (graph != null) {
+                    graph.draw(gMap);
+                }
             }
             gMap.draw(canvas);
         }
@@ -192,10 +201,16 @@ public class MatrixGameActivity extends AppCompatActivity  implements SurfaceHol
                 while (isDrawing) {
                     if (graph != null) {
                         synchronized (gMap) {
+//                            Log.i("TEST", "===>" + graph.toString());
                             if (graph.canFallen(gMap)) {
-                                gMap.resetGraph(graph);
-                                graph.fall();
+                                synchronized (GameGraph.class) {        //会改变graph，如果此graph正在往Map上绘制，会有冲突,所以同步
+//                                Log.i("TEST", "===>graph falling");
+//                                gMap.resetGraph(graph);
+                                    graph.fall();
+                                }
                             } else {
+                                gMap.block(graph);
+                                gMap.setGraphCache(null);
                                 int rows = gMap.deleteRow();
                                 score += GameUtils.getScore(rows);
                                 step = GameUtils.getStep(score);

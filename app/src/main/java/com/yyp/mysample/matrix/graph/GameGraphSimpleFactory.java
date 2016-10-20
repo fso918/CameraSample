@@ -12,16 +12,22 @@ public class GameGraphSimpleFactory {
                 graph = LineGraph.getRandomIns();
                 break;
             case GameGraph.TYPE_L:
-                graph = LineGraph.getRandomIns();
+                graph = LGraph.getRandomIns();
                 break;
             case GameGraph.TYPE_ANTI_L:
-                graph = LineGraph.getRandomIns();
+                graph = AntiLGraph.getRandomIns();
                 break;
             case GameGraph.TYPE_BIG_BLOCK:
                 graph = RectGraph.getRandomIns();
                 break;
             case GameGraph.TYPE_TU:
-                graph = RectGraph.getRandomIns();
+                graph = TuGraph.getRandomIns();
+                break;
+            case GameGraph.TYPE_N:
+                graph = NGraph.getRandomIns();
+                break;
+            case GameGraph.TYPE_ANTI_N:
+                graph = AntiNGraph.getRandomIns();
                 break;
             default:
 

@@ -51,6 +51,62 @@ public class GameUtils {
         return speed;
     }
 
+    /**
+     * 用于判断传入的MapBlock的正下方是否已经存在方块
+     * @param gMap
+     * @param blocks
+     * @return
+     */
+    public static boolean isDownBlocked(GameMap gMap, MapBlock... blocks){
+        if(blocks != null && blocks.length != 0){
+            for(MapBlock block : blocks){
+                if(block != null){
+                    if(block.getY() + 1 == MatrixGameConstant.GAME_HEIGHT) return true;
+                    Block b = GameUtils.getBlock(gMap, block.getX(), block.getY() + 1);
+                    if(b == null) continue;
+                    if(b.isBlock())
+                        return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean isLeftBlocked(GameMap gMap, MapBlock... blocks){
+        if(blocks != null && blocks.length != 0){
+            for(MapBlock block : blocks){
+                if(block != null){
+                    Block b = GameUtils.getBlock(gMap, block.getX() - 1, block.getY());
+                    if(b == null) return true;
+                    if(b.isBlock())
+                        return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean isRightBlocked(GameMap gMap, MapBlock... blocks){
+        if(blocks != null && blocks.length != 0){
+            for(MapBlock block : blocks){
+                if(block != null){
+                    Block b = GameUtils.getBlock(gMap, block.getX() + 1, block.getY());
+                    if(b == null) return true;
+                    if(b.isBlock())
+                        return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean isBlocked(GameMap map, int x, int y){
+        if(x < 0 || x >= MatrixGameConstant.GAME_WIDTH || y < 0 || y >= MatrixGameConstant.GAME_HEIGHT){
+            return true;
+        }
+        return map.getRows().get(y).getBlocks().get(x).isBlock();
+    }
+
     public static int getScore(int count){
         switch (count){
             case 1:
@@ -89,7 +145,7 @@ public class GameUtils {
     }
 
     public static Block getBlock(GameMap map, int x, int y){
-        if(map != null && x < MatrixGameConstant.GAME_WIDTH && y < MatrixGameConstant.GAME_HEIGHT){
+        if(map != null && x < MatrixGameConstant.GAME_WIDTH && y < MatrixGameConstant.GAME_HEIGHT && x >= 0 && y >= 0){
             return map.getRows().get(y).getBlocks().get(x);
         }
         return null;

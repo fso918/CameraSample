@@ -9,6 +9,8 @@ public class MapBlock {
     private int y;          //y坐标
     private int color = MatrixGameConstant.GAME_BLOCK_COLOR;
 
+    private MapBlock(){}
+
     public MapBlock(int x, int y){
         this.x = x;
         this.y = y;
@@ -41,5 +43,18 @@ public class MapBlock {
 
     public void setColor(int color) {
         this.color = color;
+    }
+
+    @Override
+    public String toString() {
+        return "["+x+","+y+"]";
+    }
+
+    public MapBlock copy(){
+        MapBlock b = new MapBlock();
+        b.x = x;
+        b.y = y;
+        b.color = color;
+        return b;
     }
 }

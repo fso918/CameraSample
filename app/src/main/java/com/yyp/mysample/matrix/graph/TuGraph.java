@@ -9,60 +9,60 @@ import java.util.Random;
  * Created by fso91 on 2016/9/27.
  */
 
-public class LGraph extends GameGraph {
+public class TuGraph extends GameGraph {
     public static final int STATE_TURN_1 = 1;
     public static final int STATE_TURN_2 = 2;
     public static final int STATE_TURN_3 = 3;
     public static final int STATE_TURN_4 = 4;
 
-    private LGraph(){
-        color = Color.RED;
+    private TuGraph(){
+        color = Color.parseColor("#EE7AE9");
         blocks = new ArrayList<MapBlock>();
     }
 
-    private LGraph(int state){
+    private TuGraph(int state){
         this();
         this.state = state;
         MapBlock block = null;
         switch (state){
             case STATE_TURN_1:
-                block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2 -2, -3, color);
-                blocks.add(block);
-                block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2 -2, -2, color);
-                blocks.add(block);
-                block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2 -2, -1, color);
-                blocks.add(block);
                 block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2 -1, -1, color);
+                blocks.add(block);
+                block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2, -1, color);
+                blocks.add(block);
+                block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2 + 1, -1, color);
+                blocks.add(block);
+                block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2, -2, color);
                 blocks.add(block);
                 break;
             case STATE_TURN_2:
+                block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2 - 1, -3, color);
+                blocks.add(block);
+                block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2 - 1, -2, color);
+                blocks.add(block);
+                block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2 - 1, -1, color);
+                blocks.add(block);
+                block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2, -2, color);
+                blocks.add(block);
+                break;
+            case STATE_TURN_3:
                 block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2 + 1, -2, color);
                 blocks.add(block);
                 block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2, -2, color);
                 blocks.add(block);
                 block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2 - 1, -2, color);
                 blocks.add(block);
-                block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2 - 1, -1, color);
-                blocks.add(block);
-                break;
-            case STATE_TURN_3:
-                block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2 + 1, -1, color);
-                blocks.add(block);
-                block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2 + 1, -2, color);
-                blocks.add(block);
-                block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2 + 1, -3, color);
-                blocks.add(block);
-                block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2, -3, color);
+                block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2, -1, color);
                 blocks.add(block);
                 break;
             case STATE_TURN_4:
-                block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2 - 2, -1, color);
-                blocks.add(block);
-                block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2 -1, -1, color);
-                blocks.add(block);
                 block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2, -1, color);
                 blocks.add(block);
                 block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2, -2, color);
+                blocks.add(block);
+                block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2, -3, color);
+                blocks.add(block);
+                block = new MapBlock(MatrixGameConstant.GAME_WIDTH / 2 -1, -2, color);
                 blocks.add(block);
                 break;
         }
@@ -77,46 +77,46 @@ public class LGraph extends GameGraph {
         switch (state){
             case STATE_TURN_1:
                 state = STATE_TURN_2;
-                block = new MapBlock(x + 2, y + 1, color);
+                block = new MapBlock(x, y - 2, color);
                 blocks.add(block);
-                block = new MapBlock(x + 1, y + 1, color);
+                block = new MapBlock(x, y - 1, color);
                 blocks.add(block);
-                block = new MapBlock(x, y + 1, color);
+                block = new MapBlock(x, y, color);
                 blocks.add(block);
-                block = new MapBlock(x, y + 2, color);
+                block = new MapBlock(x + 1, y - 1, color);
                 blocks.add(block);
                 break;
             case STATE_TURN_2:
                 state = STATE_TURN_3;
-                block = new MapBlock(x - 1, y + 2, color);
+                block = new MapBlock(x + 2, y, color);
                 blocks.add(block);
-                block = new MapBlock(x - 1, y + 1, color);
+                block = new MapBlock(x + 1, y, color);
                 blocks.add(block);
-                block = new MapBlock(x - 1, y, color);
+                block = new MapBlock(x, y, color);
                 blocks.add(block);
-                block = new MapBlock(x - 2, y, color);
+                block = new MapBlock(x + 1, y + 1, color);
                 blocks.add(block);
                 break;
             case STATE_TURN_3:
                 state = STATE_TURN_4;
-                block = new MapBlock(x - 2, y - 1, color);
+                block = new MapBlock(x, y + 2, color);
                 blocks.add(block);
-                block = new MapBlock(x - 1, y - 1, color);
+                block = new MapBlock(x, y + 1, color);
                 blocks.add(block);
-                block = new MapBlock(x, y - 1, color);
+                block = new MapBlock(x, y, color);
                 blocks.add(block);
-                block = new MapBlock(x, y - 2, color);
+                block = new MapBlock(x - 1, y + 1, color);
                 blocks.add(block);
                 break;
             case STATE_TURN_4:
                 state = STATE_TURN_1;
-                block = new MapBlock(x + 1, y - 2, color);
+                block = new MapBlock(x - 2, y, color);
                 blocks.add(block);
-                block = new MapBlock(x + 1, y - 1, color);
+                block = new MapBlock(x - 1, y, color);
                 blocks.add(block);
-                block = new MapBlock(x + 1, y, color);
+                block = new MapBlock(x, y, color);
                 blocks.add(block);
-                block = new MapBlock(x + 2, y, color);
+                block = new MapBlock(x - 1, y - 1, color);
                 blocks.add(block);
                 break;
         }
@@ -130,25 +130,21 @@ public class LGraph extends GameGraph {
         switch (state){
             case STATE_TURN_1:
                 block1 = blocks.get(2);
-                block2 = blocks.get(3);
-                if(block1.getY() == MatrixGameConstant.GAME_HEIGHT -1) return false;
+                block2 = blocks.get(1);
+                block3 = blocks.get(0);
                 break;
             case STATE_TURN_2:
-                block1 = blocks.get(0);
-                block2 = blocks.get(1);
+                block1 = blocks.get(2);
                 block3 = blocks.get(3);
-                if(block3.getY() == MatrixGameConstant.GAME_HEIGHT -1) return false;
                 break;
             case STATE_TURN_3:
                 block1 = blocks.get(0);
                 block2 = blocks.get(3);
-                if(block1.getY() == MatrixGameConstant.GAME_HEIGHT -1) return false;
+                block3 = blocks.get(2);
                 break;
             case STATE_TURN_4:
                 block1 = blocks.get(0);
-                block2 = blocks.get(1);
-                block3 = blocks.get(2);
-                if(block3.getY() == MatrixGameConstant.GAME_HEIGHT -1) return false;
+                block2 = blocks.get(3);
                 break;
         }
 
@@ -165,22 +161,22 @@ public class LGraph extends GameGraph {
         boolean canTurnShape = true;
         switch (state){
             case STATE_TURN_1:
-                if(GameUtils.isBlocked(map, x + 1, y + 1) || GameUtils.isBlocked(map, x + 2, y + 1)){
+                if(GameUtils.isBlocked(map, x, y - 1) || GameUtils.isBlocked(map, x, y - 2)){
                     canTurnShape = false;
                 }
                 break;
             case STATE_TURN_2:
-                if(GameUtils.isBlocked(map, x - 1, y + 1) || GameUtils.isBlocked(map, x - 1, y + 2)){
+                if(GameUtils.isBlocked(map, x + 1, y) || GameUtils.isBlocked(map, x + 2, y)){
                     canTurnShape = false;
                 }
                 break;
             case STATE_TURN_3:
-                if(GameUtils.isBlocked(map, x - 1, y - 1) || GameUtils.isBlocked(map, x - 2, y - 1)){
+                if(GameUtils.isBlocked(map, x, y + 1) || GameUtils.isBlocked(map, x, y + 2)){
                     canTurnShape = false;
                 }
                 break;
             case STATE_TURN_4:
-                if(GameUtils.isBlocked(map, x + 1, y - 1) || GameUtils.isBlocked(map, x + 1, y - 2)){
+                if(GameUtils.isBlocked(map, x - 1, y) || GameUtils.isBlocked(map, x - 2, y)){
                     canTurnShape = false;
                 }
                 break;
@@ -196,21 +192,21 @@ public class LGraph extends GameGraph {
         switch (state){
             case STATE_TURN_1:
                 block1 = blocks.get(0);
+                block2 = blocks.get(3);
+                break;
+            case STATE_TURN_2:
+                block1 = blocks.get(0);
                 block2 = blocks.get(1);
                 block3 = blocks.get(2);
                 break;
-            case STATE_TURN_2:
+            case STATE_TURN_3:
                 block1 = blocks.get(2);
                 block2 = blocks.get(3);
                 break;
-            case STATE_TURN_3:
-                block1 = blocks.get(0);
-                block2 = blocks.get(1);
-                block3 = blocks.get(3);
-                break;
             case STATE_TURN_4:
                 block1 = blocks.get(0);
-                block2 = blocks.get(3);
+                block2 = blocks.get(2);
+                block3 = blocks.get(3);
                 break;
         }
         if(GameUtils.isLeftBlocked(map, block1, block2, block3)) {
@@ -226,22 +222,22 @@ public class LGraph extends GameGraph {
         MapBlock block3 = null;
         switch (state){
             case STATE_TURN_1:
-                block1 = blocks.get(0);
-                block2 = blocks.get(1);
-                block3 = blocks.get(3);
+                block1 = blocks.get(2);
+                block2 = blocks.get(3);
                 break;
             case STATE_TURN_2:
                 block1 = blocks.get(0);
-                block2 = blocks.get(3);
+                block2 = blocks.get(2);
+                block3 = blocks.get(3);
                 break;
             case STATE_TURN_3:
                 block1 = blocks.get(0);
-                block2 = blocks.get(1);
-                block3 = blocks.get(2);
+                block2 = blocks.get(3);
                 break;
             case STATE_TURN_4:
-                block1 = blocks.get(2);
-                block2 = blocks.get(3);
+                block1 = blocks.get(0);
+                block2 = blocks.get(1);
+                block3 = blocks.get(2);
                 break;
         }
         if(GameUtils.isRightBlocked(map, block1, block2, block3)) {
@@ -251,6 +247,6 @@ public class LGraph extends GameGraph {
     }
 
     public static GameGraph getRandomIns(){
-        return new LGraph(new Random().nextInt(4) + 1);
+        return new TuGraph(new Random().nextInt(4) + 1);
     }
 }

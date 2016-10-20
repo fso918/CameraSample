@@ -18,6 +18,7 @@ public class GameMap {
     private int x;
     private int y;
     private List<GameRow> rows;
+    private List<MapBlock> graphCache;
 
     public GameMap(int width, int height){
         this.height = height;
@@ -42,8 +43,9 @@ public class GameMap {
         }
     }
 
-    public void resetGraph(GameGraph graph){
-        List<MapBlock> blocks = graph.blocks;
+    public void resetGraph(){
+        if(graphCache == null) return;
+        List<MapBlock> blocks = graphCache;
         for(MapBlock block : blocks){
             if(block.getY() >= 0) {
                 rows.get(block.getY()).getBlocks().get(block.getX()).resetColor().setBlock(false);
@@ -106,7 +108,29 @@ public class GameMap {
         }
     }
 
+    public void block(GameGraph graph){
+        resetGraph();
+        if(graph == null) return;
+        List<MapBlock> blocks = graph.getBlocks();
+        for (MapBlock b : blocks) {
+            if (b.getY() >= 0) {
+                Block bl = GameUtils.getBlock(this, b.getX(), b.getY());
+                if(bl != null){
+                    bl.setColor(b.getColor()).setBlock(true);
+                }
+            }
+        }
+    }
+
     public List<GameRow> getRows() {
         return rows;
+    }
+
+    public List<MapBlock> getGraphCache() {
+        return graphCache;
+    }
+
+    public void setGraphCache(List<MapBlock> graphCache) {
+        this.graphCache = graphCache;
     }
 }

@@ -3,6 +3,7 @@ package com.yyp.mysample.matrix.graph;
 import android.graphics.Color;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -12,16 +13,8 @@ import java.util.Random;
 public class LineGraph extends GameGraph {
     public static final int HORIZ = 0;
     public static final int VERTICAL = 1;
-    private int state = VERTICAL;
 
-    private LineGraph(){
-        color = Color.BLUE;
-        blocks = new ArrayList<MapBlock>();
-        for(int i = 0; i < 4; i++){
-            blocks.add(new MapBlock(4,-4 + i));
-        }
-        state = VERTICAL;
-    }
+    private LineGraph(){}
 
     private void init(int x, int y){
         color = Color.BLUE;
@@ -38,13 +31,8 @@ public class LineGraph extends GameGraph {
     }
 
     private LineGraph(int x, int y, int state) {
-        this(state);
-        init(x, y);
-    }
-
-    private LineGraph(int state){
         this.state = state;
-        init(0, 0);
+        init(x, y);
     }
 
     public static LineGraph getRandomIns(){
