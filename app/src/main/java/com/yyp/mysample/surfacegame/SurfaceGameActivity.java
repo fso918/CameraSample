@@ -1,5 +1,6 @@
 package com.yyp.mysample.surfacegame;
 
+import android.app.Activity;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -20,7 +21,7 @@ import java.util.List;
  * Created by fso91 on 2016/9/21.
  */
 
-public class SurfaceGameActivity extends AppCompatActivity implements SurfaceHolder.Callback, View.OnTouchListener{
+public class SurfaceGameActivity extends Activity implements SurfaceHolder.Callback, View.OnTouchListener{
     private SurfaceView surfaceView;
     private Thread drawThread;
     private boolean isDrawing = false;

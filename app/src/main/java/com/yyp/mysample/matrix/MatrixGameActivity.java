@@ -1,5 +1,6 @@
 package com.yyp.mysample.matrix;
 
+import android.app.Activity;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -21,13 +22,17 @@ import com.yyp.mysample.matrix.graph.GameMap;
 import com.yyp.mysample.matrix.graph.GameUtils;
 import com.yyp.mysample.matrix.graph.GameGraph;
 import com.yyp.mysample.matrix.graph.LineGraph;
+import com.yyp.mysample.matrix.graph.MapBlock;
 import com.yyp.mysample.matrix.graph.MatrixGameConstant;
+import com.yyp.mysample.matrix.graph.NGraph;
+
+import java.util.List;
 
 /**
  * Created by fso91 on 2016/9/22.
  */
 
-public class MatrixGameActivity extends AppCompatActivity  implements SurfaceHolder.Callback, View.OnClickListener{
+public class MatrixGameActivity extends Activity implements SurfaceHolder.Callback, View.OnClickListener{
     public static final int GAME_EVENT_UPDATE_SCORE = 1;
     public static final int GAME_EVENT_GAME_OVER = 0;
 
@@ -42,6 +47,8 @@ public class MatrixGameActivity extends AppCompatActivity  implements SurfaceHol
     int gWidth, gHeight;
     private GameMap gMap;
     private GameGraph graph;
+    private GameMap ngMap;
+    private GameGraph ngGraph;
 
     private TextView moveLeftTv;
     private TextView moveRightTv;
@@ -95,7 +102,6 @@ public class MatrixGameActivity extends AppCompatActivity  implements SurfaceHol
                 case R.id.turn_shape:
                     synchronized (GameGraph.class) {
                         if (graph != null && graph.canTurnShape(gMap)) {
-//                            gMap.resetGraph(graph);
                             graph.turnShape();
                         }
                     }
@@ -103,7 +109,6 @@ public class MatrixGameActivity extends AppCompatActivity  implements SurfaceHol
                 case R.id.move_left:
                     if (graph != null && graph.canMoveLeft(gMap)) {
                         synchronized (GameGraph.class) {
-//                            gMap.resetGraph(graph);
                             graph.moveLeft();
                         }
                     }
@@ -111,7 +116,6 @@ public class MatrixGameActivity extends AppCompatActivity  implements SurfaceHol
                 case R.id.move_right:
                     if (graph != null && graph.canMoveRight(gMap)) {
                         synchronized (GameGraph.class) {
-//                            gMap.resetGraph(graph);
                             graph.moveRight();
                         }
                     }
@@ -132,6 +136,8 @@ public class MatrixGameActivity extends AppCompatActivity  implements SurfaceHol
             }
             gMap.draw(canvas);
         }
+        ngMap.drawBlocks(GameUtils.fallRows(ngGraph.copyBlocks(), 4));
+        ngMap.draw(canvas);
     }
 
     @Override
@@ -141,15 +147,22 @@ public class MatrixGameActivity extends AppCompatActivity  implements SurfaceHol
         gHeight = surfaceView.getHeight();
 
         gMap = new GameMap(MatrixGameConstant.GAME_WIDTH, MatrixGameConstant.GAME_HEIGHT);
-        gMap.getRows().get(15).getBlocks().get(5).setBlock(false).setColor(Color.RED);
+//        gMap.getRows().get(15).getBlocks().get(5).setBlock(false).setColor(Color.RED);
         gMap.setX(50);
         gMap.setY(150);
+
+        graph = GameUtils.getRandomGraph();
+        ngGraph = GameUtils.getRandomGraph();
+
+        ngMap = new GameMap(MatrixGameConstant.GAME_NEXT_WIDTH, MatrixGameConstant.GAME_NEXT_HEIGHT);
+        ngMap.setY(150);
+        ngMap.setX(gMap.getWidthPx() + 50 + 70);
+
         drawThread = new DrawThread();
         drawThread.start();
 
         fallThread = new FallThread();
         fallThread.start();
-        graph = GameUtils.getRandomGraph();
     }
 
     @Override
@@ -223,7 +236,9 @@ public class MatrixGameActivity extends AppCompatActivity  implements SurfaceHol
                                     msg.what = GAME_EVENT_GAME_OVER;
                                     gHandler.sendMessage(msg1);
                                 }else {
-                                    graph = GameUtils.getRandomGraph();
+                                    graph = ngGraph;
+                                    ngGraph = GameUtils.getRandomGraph();
+                                    ngMap.reset();
                                     fallSpeed = GameUtils.getGameSpeed(step);
                                 }
                             }

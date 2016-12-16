@@ -1,5 +1,6 @@
 package com.yyp.mysample;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,15 +13,17 @@ import com.yyp.mysample.Constant.Constant;
 import com.yyp.mysample.feature.camera.ui.AbstractCameraActivity;
 import com.yyp.mysample.feature.camera.ui.CameraActivity;
 import com.yyp.mysample.matrix.MatrixGameActivity;
+import com.yyp.mysample.refreshcomponent.YNRefreshFrameLayoutTestActivity;
 import com.yyp.mysample.surfacegame.SurfaceGameActivity;
 
 /**
  * Created by fso91 on 2016/8/1.
  */
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends Activity implements View.OnClickListener{
     private TextView cameraTv;
     private Button surfaceGame;
     private Button matrixGame;
+    private Button refreshView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,10 +32,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         cameraTv = (TextView) findViewById(R.id.camera_sample);
         surfaceGame = (Button) findViewById(R.id.surfaceGame);
         matrixGame = (Button) findViewById(R.id.matrix_game);
+        refreshView = (Button) findViewById(R.id.refresh_view);
 
         cameraTv.setOnClickListener(this);
         surfaceGame.setOnClickListener(this);
         matrixGame.setOnClickListener(this);
+        refreshView.setOnClickListener(this);
     }
 
     @Override
@@ -50,6 +55,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.matrix_game:
                 intent = new Intent(this, MatrixGameActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.refresh_view:
+                intent = new Intent(this, YNRefreshFrameLayoutTestActivity.class);
                 startActivity(intent);
                 break;
         }

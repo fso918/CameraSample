@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2013-2014 YunZhongXiaoNiao Tech
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/btn_blue"
+    android:orientation="vertical">
+
+    <!-- header -->
+    <LinearLayout
+        android:id="@+id/titlelayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="刷新控件测试"/>
+    </LinearLayout>
+    <com.yyp.mysample.refreshcomponent.YNRefreshLinearLayout
+        android:id="@+id/refresh_frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/dip_10"
+        android:background="@color/white">
+    </com.yyp.mysample.refreshcomponent.YNRefreshLinearLayout>
+
+</LinearLayout>

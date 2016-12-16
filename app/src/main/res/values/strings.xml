@@ -3,4 +3,5 @@
     <string name="camera_sample">自定义相机示例</string>
     <string name="surface_game">SurfaceViewGame</string>
     <string name="game_matrix">俄罗斯方块</string>
+    <string name="refresh_view">刷新控件</string>
 </resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2013-2014 YunZhongXiaoNiao Tech
+  -->
+
+<!-- 列表加载空view -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/blue_40">
+        <TextView
+            android:id="@+id/tv_empty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="60dp"
+            android:text="无数据"
+            android:drawableTop="@mipmap/no_data"
+            android:textColor="@color/gray"
+            android:textSize="16sp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dip_7"
+        android:background="@color/btn_blue"/>
+
+</LinearLayout>

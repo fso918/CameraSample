@@ -9,6 +9,8 @@ import android.graphics.Color;
 public interface MatrixGameConstant {
     int GAME_WIDTH = 12;
     int GAME_HEIGHT = 20;
+    int GAME_NEXT_WIDTH = 6;
+    int GAME_NEXT_HEIGHT = 6;
     int GAME_BLOCK_WIDTH = 30;
     int GAME_DEFAULT_COLOR = Color.parseColor("#737373");
     int GAME_BLOCK_COLOR = Color.BLUE;

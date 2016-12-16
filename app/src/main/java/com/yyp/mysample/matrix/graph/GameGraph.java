@@ -29,7 +29,6 @@ public abstract class GameGraph {
     public GameGraph(){};
 
     public void draw(GameMap map){
-//        synchronized (GameMap.class){
         map.resetGraph();
         if(blocks != null && blocks.size() > 0) {
             for (MapBlock b : blocks) {
@@ -41,8 +40,16 @@ public abstract class GameGraph {
                 }
             }
         }
-        map.setGraphCache(copyBlocks(this));
-//        }
+        map.setGraphCache(copyBlocks());
+    }
+
+    /**
+     * 用于绘制下一个图形
+     * Create by yanyunpeng
+     * Date: 2016/10/20 23:33
+     */
+    public void drawNext(GameMap map){
+
     }
 
     public void moveLeft() {
@@ -111,7 +118,7 @@ public abstract class GameGraph {
         return ret;
     }
 
-    public List<MapBlock> copyBlocks(GameGraph graph) {
+    public List<MapBlock> copyBlocks() {
         List<MapBlock> blocksTmp = new ArrayList<MapBlock>();
         for(MapBlock b : blocks){
             blocksTmp.add(b.copy());

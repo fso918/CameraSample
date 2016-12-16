@@ -1,7 +1,10 @@
 package com.yyp.mysample.matrix.graph;
 
+import android.util.Log;
+
 import com.yyp.mysample.surfacegame.GameConstants;
 
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -145,9 +148,27 @@ public class GameUtils {
     }
 
     public static Block getBlock(GameMap map, int x, int y){
-        if(map != null && x < MatrixGameConstant.GAME_WIDTH && y < MatrixGameConstant.GAME_HEIGHT && x >= 0 && y >= 0){
+//        Log.i("TESTst", "mW:" + map.getWidth() + ",mH:" + map.getHeight() + ",x:" + x + ",y:" + y);
+        if(map != null && x < map.getWidth() && y < map.getHeight() && x >= 0 && y >= 0){
             return map.getRows().get(y).getBlocks().get(x);
         }
         return null;
+    }
+
+    public static List<MapBlock> fallRows(List<MapBlock> blocks, int rows){
+        if(blocks == null) return null;
+        for(MapBlock block : blocks){
+            block.setY(block.getY() + rows);
+        }
+        return blocks;
+    }
+
+    public static String toString(List<MapBlock> blocks){
+        if(blocks == null || blocks.size() == 0) return "========================================";
+        String str = "";
+        for(MapBlock b : blocks){
+            str += "[" + b.getX() + "," + b.getY() + "],";
+        }
+        return str;
     }
 }

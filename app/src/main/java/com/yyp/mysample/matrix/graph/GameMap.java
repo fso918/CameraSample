@@ -31,7 +31,7 @@ public class GameMap {
     }
 
     public void draw(Canvas canvas){
-        Rect rect = new Rect(x- 1, y - 1, x + MatrixGameConstant.GAME_BLOCK_WIDTH * width + 2, y + MatrixGameConstant.GAME_BLOCK_WIDTH * height + 2);
+        Rect rect = new Rect(x - 1, y - 1, x + MatrixGameConstant.GAME_BLOCK_WIDTH * width + 2, y + MatrixGameConstant.GAME_BLOCK_WIDTH * height + 2);
         Paint paint = new Paint();
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.STROKE);
@@ -40,6 +40,13 @@ public class GameMap {
         canvas.drawRect(rect, paint);
         for(GameRow r : rows){
             r.draw(canvas);
+        }
+    }
+
+    public void drawBlocks(List<MapBlock> blocks){
+        if(blocks == null) return;
+        for(MapBlock b : blocks){
+            GameUtils.getBlock(this, b.getX() - (MatrixGameConstant.GAME_WIDTH / 2) + 2, b.getY()).setColor(b.getColor());
         }
     }
 
@@ -122,6 +129,14 @@ public class GameMap {
         }
     }
 
+    public void reset(){
+        for(GameRow r : rows){
+            for(Block b : r.getBlocks()){
+                b.setColor(MatrixGameConstant.GAME_DEFAULT_COLOR).setBlock(false);
+            }
+        }
+    }
+
     public List<GameRow> getRows() {
         return rows;
     }
@@ -132,5 +147,13 @@ public class GameMap {
 
     public void setGraphCache(List<MapBlock> graphCache) {
         this.graphCache = graphCache;
+    }
+
+    public int getWidthPx(){
+        return MatrixGameConstant.GAME_BLOCK_WIDTH * width + 2;
+    }
+
+    public int getHeightPx(){
+        return MatrixGameConstant.GAME_BLOCK_WIDTH * height + 2;
     }
 }
