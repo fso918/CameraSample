@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f1f1f1">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#e33125"
+        android:id="@+id/title_layout">
+        <TextView
+            android:id="@+id/title"
+            style="@style/title_text_style"
+            android:text="BezierGame"/>
+
+        <ImageView
+            android:id="@+id/back"
+            style="@style/title_backbtn_style" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <SurfaceView
+            android:id="@+id/my_bezier_game"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <com.yyp.mysample.views.HeartView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_alignParentBottom="true"/>
+
+    </RelativeLayout>
+</LinearLayout>

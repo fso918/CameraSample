@@ -8,8 +8,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -18,15 +16,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yyp.mysample.R;
+import com.yyp.mysample.matrix.graph.GameGraph;
 import com.yyp.mysample.matrix.graph.GameMap;
 import com.yyp.mysample.matrix.graph.GameUtils;
-import com.yyp.mysample.matrix.graph.GameGraph;
-import com.yyp.mysample.matrix.graph.LineGraph;
-import com.yyp.mysample.matrix.graph.MapBlock;
 import com.yyp.mysample.matrix.graph.MatrixGameConstant;
-import com.yyp.mysample.matrix.graph.NGraph;
-
-import java.util.List;
 
 /**
  * Created by fso91 on 2016/9/22.

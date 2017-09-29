@@ -11,4 +11,9 @@
     <color name="blue_light">#e5f6ff</color>
     <color name="btn_blue">#01a1ff</color>
     <color name="gray">#999999</color>
+
+    <!-- 分割线颜色-->
+    <color name="line_gray">#dcdbe3</color>
+    <color name="wheel_timebtn_nor">#54a3fa</color>
+    <color name="wheel_timebtn_pre">#CCCCCC</color>
 </resources>

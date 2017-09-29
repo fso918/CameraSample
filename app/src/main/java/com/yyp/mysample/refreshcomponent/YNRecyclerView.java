@@ -73,7 +73,7 @@ public class YNRecyclerView extends RecyclerView {
 	}
 
 	private void init() {
-		addOnScrollListener(new OnScrollListener() {
+		setOnScrollListener(new OnScrollListener() {
 
 			@Override
 			public void onScrollStateChanged(RecyclerView recyclerView, int newState) {

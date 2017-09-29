@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RadioGroup
+        android:id="@+id/bottom_check"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/task_hall"
+            style="@style/tab_style"
+            android:drawableTop="@mipmap/tab_task_hall"
+            android:text="大厅"/>
+
+        <RadioButton
+            android:id="@+id/arrangement"
+            style="@style/tab_style"
+            android:drawableTop="@mipmap/tab_arrange"
+            android:text="运力"/>
+
+        <RadioButton
+            android:id="@+id/my_income"
+            style="@style/tab_style"
+            android:drawableTop="@mipmap/tab_my_income"
+            android:text="收入"/>
+
+        <RadioButton
+            android:id="@+id/mine"
+            style="@style/tab_style"
+            android:drawableTop="@mipmap/tab_mine"
+            android:text="个人"/>
+    </RadioGroup>
+
+    <FrameLayout
+        android:id="@+id/fragment_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_check"></FrameLayout>
+</RelativeLayout>

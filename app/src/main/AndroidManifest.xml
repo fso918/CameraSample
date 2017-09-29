@@ -1,9 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yyp.mysample">
+          package="com.yyp.mysample">
 
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <uses-feature android:name="android.hardware.camera"/>
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
 
@@ -13,7 +16,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppBaseTheme">
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -21,16 +25,41 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".feature.camera.ui.CameraActivity"
-            android:screenOrientation="portrait" />
-
-        <activity android:name=".surfacegame.SurfaceGameActivity"
-            android:screenOrientation="portrait" />
-
-        <activity android:name=".matrix.MatrixGameActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".refreshcomponent.YNRefreshFrameLayoutTestActivity"
-            android:screenOrientation="portrait" />
+        <activity
+            android:name=".feature.camera.ui.CameraActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".surfacegame.SurfaceGameActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".matrix.MatrixGameActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".refreshcomponent.YNRefreshFrameLayoutTestActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".basiergame.BezierGameActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mytest.ClipChildrenViewPageActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mytest.TestActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mytest.frag.MyFragmentActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mytest.RecyclerWrapcontentActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".constraintlayout.ConstrainLayoutActivity">
+        </activity>
+        <activity android:name=".xfermode.XfermodeSampleActivity">
+        </activity>
+        <activity android:name=".HorizCompatViewActivity">
+        </activity>
+        <activity android:name=".ExpandableListActivity">
+        </activity>
     </application>
 
 </manifest>

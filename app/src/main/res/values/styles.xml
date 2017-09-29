@@ -5,7 +5,7 @@
         <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/white</item>
     </style>
 
     <!-- 标题栏主要文字的样式 -->
@@ -28,6 +28,22 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_centerVertical">true</item>
         <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="tab_style">
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+
+    <!-- 时间选择器popwidnow 显示消失动画 -->
+    <style name="timepopwindow_anim_style">
+        <item name="android:windowEnterAnimation">@anim/timepicker_anim_enter_bottom</item> <!-- 指定显示的动画xml -->
+        <item name="android:windowExitAnimation">@anim/timepicker_anim_exit_bottom</item> <!-- 指定消失的动画xml -->
     </style>
 
 </resources>

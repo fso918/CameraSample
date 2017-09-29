@@ -1,55 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:text="@string/camera_sample"
+        android:textSize="@dimen/sp_small"
+        android:id="@+id/camera_sample"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/dip_8"
+        android:layout_marginLeft="@dimen/dip_8"
+        android:background="@android:color/darker_gray"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <Button
+        android:id="@+id/surfaceGame"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="@dimen/dip_8"
+        android:text="@string/surface_game"
+        android:textSize="@dimen/sp_small"
+        android:gravity="center"
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="@dimen/dip_8"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/camera_sample"/>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        android:layout_gravity="center_horizontal">
-
-        <Button
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:text="@string/camera_sample"
-            android:textSize="@dimen/sp_larger"
-            android:id="@+id/camera_sample"
-            android:gravity="center"
-            android:background="@android:color/darker_gray"
-            android:layout_gravity="center_horizontal" />
-        <Button
-            android:id="@+id/surfaceGame"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:text="@string/surface_game"
-            android:textSize="@dimen/sp_larger"
-            android:gravity="center"
-            android:background="@android:color/darker_gray"
-            android:layout_marginTop="@dimen/dip_15"
-            android:layout_gravity="center_horizontal" />
-
-        <Button
-            android:id="@+id/matrix_game"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:text="@string/game_matrix"
-            android:textSize="@dimen/sp_larger"
-            android:gravity="center"
-            android:background="@android:color/darker_gray"
-            android:layout_marginTop="@dimen/dip_15"
-            android:layout_gravity="center_horizontal" />
-        <Button
-            android:id="@+id/refresh_view"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:text="@string/refresh_view"
-            android:textSize="@dimen/sp_larger"
-            android:gravity="center"
-            android:background="@android:color/darker_gray"
-            android:layout_marginTop="@dimen/dip_15"
-            android:layout_gravity="center_horizontal" />
-    </LinearLayout>
-</LinearLayout>
+    <Button
+        android:id="@+id/matrix_game"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:text="@string/game_matrix"
+        android:textSize="@dimen/sp_small"
+        android:gravity="center"
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/camera_sample"
+        app:layout_constraintLeft_toLeftOf="@id/camera_sample"/>
+    <Button
+        android:id="@+id/refresh_view"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:text="@string/refresh_view"
+        android:textSize="@dimen/sp_small"
+        android:gravity="center"
+        android:background="@android:color/darker_gray"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintLeft_toLeftOf="@id/surfaceGame"
+        app:layout_constraintTop_toTopOf="@id/matrix_game"/>
+    <Button
+        android:id="@+id/bezier_game"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:text="Bezier Game"
+        android:textSize="@dimen/sp_small"
+        android:gravity="center"
+        android:background="@android:color/darker_gray"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/matrix_game"
+        app:layout_constraintLeft_toLeftOf="@id/matrix_game"/>
+    <Button
+        android:id="@+id/my_test"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:text="What's fuck"
+        android:textSize="@dimen/sp_small"
+        android:gravity="center"
+        android:background="@android:color/darker_gray"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintTop_toTopOf="@id/bezier_game"
+        app:layout_constraintLeft_toLeftOf="@id/refresh_view"/>
+    <Button
+        android:id="@+id/my_async"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:text="async test"
+        android:textSize="@dimen/sp_small"
+        android:gravity="center"
+        android:background="@android:color/darker_gray"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dip_8"
+        app:layout_constraintTop_toBottomOf="@id/bezier_game"
+        app:layout_constraintLeft_toLeftOf="@id/bezier_game"/>
+    <Button
+        android:id="@+id/constrain_layout"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:text="constrain_layout"
+        android:textSize="@dimen/sp_small"
+        android:gravity="center"
+        android:background="@android:color/darker_gray"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintLeft_toLeftOf="@id/my_test"
+        app:layout_constraintTop_toTopOf="@id/my_async"/>
+    <Button
+        android:id="@+id/xfermode_sample"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:text="Xformode Sample"
+        android:textSize="@dimen/sp_normal"
+        android:gravity="center"
+        android:background="@android:color/darker_gray"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dip_8"
+        app:layout_constraintTop_toBottomOf="@id/my_async"
+        app:layout_constraintLeft_toLeftOf="@id/my_async"/>
+    <Button
+        android:id="@+id/horiz_compat_view"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:text="Horiz Compat Viewgroup"
+        android:textSize="@dimen/sp_small"
+        android:gravity="center"
+        android:background="@android:color/darker_gray"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintLeft_toLeftOf="@id/constrain_layout"
+        app:layout_constraintTop_toTopOf="@id/xfermode_sample"/>
+    <Button
+        android:id="@+id/expandable_list"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:text="Expandable List"
+        android:textSize="@dimen/sp_small"
+        android:gravity="center"
+        android:background="@android:color/darker_gray"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dip_8"
+        app:layout_constraintLeft_toLeftOf="@id/xfermode_sample"
+        app:layout_constraintTop_toBottomOf="@id/xfermode_sample"/>
+</android.support.constraint.ConstraintLayout>
